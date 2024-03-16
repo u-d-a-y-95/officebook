@@ -1,0 +1,8 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #f7f7f7;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
