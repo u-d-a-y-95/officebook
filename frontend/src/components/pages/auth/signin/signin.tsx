@@ -7,12 +7,14 @@ import dynamic from "next/dynamic";
 import { InputError } from "@/components/core";
 import styles from "./signin.module.scss";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 const DevTool: React.ElementType = dynamic(
   () => import("@hookform/devtools").then((module) => module.DevTool),
   { ssr: false }
 );
 
 export const SignIn = () => {
+  const router = useRouter();
   const {
     control,
     handleSubmit,
@@ -27,6 +29,7 @@ export const SignIn = () => {
       ...values,
       redirect: false,
     });
+    if (res?.status === 200) return router.replace("/");
   };
 
   return (

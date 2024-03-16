@@ -13,8 +13,9 @@ const authOptions: AuthOptions = {
       authorize: async (credentials, req) => {
         const { email, password } = credentials;
         const res = await (
-          await fetch("http://localhost:5000/auth/signin", {
+          await fetch("http://localhost:4000/auth/signin", {
             method: "post",
+
             headers: {
               "Content-Type": "application/json",
             },
@@ -31,30 +32,21 @@ const authOptions: AuthOptions = {
       },
     }),
   ],
-  cookies: {
-    sessionToken: {
-      name: "auth",
-      options: {
-        httpOnly: true,
-      },
-    },
-  },
-  pages: {
-    signIn: "/auth/signin/index.tsx",
-  },
+
   session: {
     strategy: "jwt",
   },
   jwt: {
     encode({ token }) {
-      // console.log(params);
       return token.token;
     },
+    decode({ token }) {
+      return true;
+    },
   },
+
   callbacks: {
-    // signIn
     async jwt({ token, user, account, profile, isNewUser }) {
-      console.log(user);
       return { token: user.token };
     },
   },

@@ -23,6 +23,6 @@ async function bootstrap() {
   );
   app.useGlobalInterceptors(new ResponseInterceptor());
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
-  await app.listen(5000);
+  await app.listen(4000);
 }
 bootstrap();
