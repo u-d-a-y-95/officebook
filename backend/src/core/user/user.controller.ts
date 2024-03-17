@@ -13,11 +13,11 @@ export class UserController {
   }
   @Get()
   getUsers() {
-    return this.userService.findAll();
+    return this.userService.find();
   }
 
   @Delete(':id')
   deleteUser(@Param('id') id: string) {
-    return this.userService.deleteOne({ id });
+    return this.userService.deleteById(id);
   }
 }

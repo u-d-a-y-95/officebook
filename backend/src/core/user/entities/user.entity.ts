@@ -2,7 +2,7 @@ import { Exclude } from 'class-transformer';
 import { BaseEntity } from 'src/shared/base/base.entity';
 import { Column, Entity } from 'typeorm';
 
-@Entity({ name: 'users' })
+@Entity({ name: 'user' })
 export class User extends BaseEntity {
   @Column()
   name: string;

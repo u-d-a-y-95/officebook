@@ -39,9 +39,9 @@ export const SignIn = () => {
           <div className="text-center my-8">
             <Link
               href="#"
-              className="text-6xl font-semibold text-blue-500 no-underline"
+              className="text-4xl font-semibold text-blue-500 no-underline"
             >
-              Jobcan
+              Office Book
             </Link>
           </div>
           <div className="p-10 bg-white shadow-xl rounded ">
