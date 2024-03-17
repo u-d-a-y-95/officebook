@@ -13,7 +13,7 @@ import {
   updateDepartmentDto,
 } from './dtos/department.dto';
 
-@Controller('department')
+@Controller('departments')
 export class DepartmentController {
   constructor(private departmentService: DepartmentService) {}
 
