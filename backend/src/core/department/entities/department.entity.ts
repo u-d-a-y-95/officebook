@@ -7,4 +7,9 @@ export class Department extends BaseEntity {
     unique: true,
   })
   name: string;
+
+  @Column({
+    nullable: true,
+  })
+  description: string;
 }

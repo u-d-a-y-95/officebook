@@ -38,7 +38,7 @@ export abstract class BaseService<T extends BaseEntity> {
       id,
       ...values,
     });
-    const record = await this.repository.save(instance);
-    return record;
+    await this.repository.save(instance);
+    return this.findById(id);
   }
 }

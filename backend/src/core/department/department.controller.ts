@@ -8,15 +8,20 @@ import {
   Put,
 } from '@nestjs/common';
 import { DepartmentService } from './department.service';
+import {
+  createDepartmentDto,
+  updateDepartmentDto,
+} from './dtos/department.dto';
 
 @Controller('department')
 export class DepartmentController {
   constructor(private departmentService: DepartmentService) {}
 
   @Post()
-  createDepartment(@Body() body: any) {
+  createDepartment(@Body() body: createDepartmentDto) {
     return this.departmentService.create(body);
   }
+
   @Get()
   getAllDepartments() {
     return this.departmentService.find();
@@ -28,7 +33,10 @@ export class DepartmentController {
   }
 
   @Put(':id')
-  updateDepartmentById(@Param('id') id: string, @Body() body: any) {
+  updateDepartmentById(
+    @Param('id') id: string,
+    @Body() body: updateDepartmentDto,
+  ) {
     return this.departmentService.updateById(id, body);
   }
 
