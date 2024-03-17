@@ -12,7 +12,7 @@ import { ConfigModule } from '@nestjs/config';
       port: 5432,
       username: 'admin',
       password: 'admin',
-      database: 'jobcan',
+      database: 'officebook',
       synchronize: true,
       autoLoadEntities: true,
     }),
