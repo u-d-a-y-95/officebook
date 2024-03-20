@@ -1,6 +1,7 @@
 import { Exclude } from 'class-transformer';
+import { Employee } from 'src/core/employee/entities/employee.entity';
 import { BaseEntity } from 'src/shared/base/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToOne } from 'typeorm';
 
 @Entity({ name: 'user' })
 export class User extends BaseEntity {
@@ -13,4 +14,7 @@ export class User extends BaseEntity {
   @Column()
   @Exclude()
   password: string;
+
+  @OneToOne(() => Employee)
+  employee: Employee;
 }

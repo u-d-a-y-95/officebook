@@ -1,7 +1,8 @@
 import { Department } from 'src/core/department/entities/department.entity';
 import { Designation } from 'src/core/designation/entities/designation.entity';
+import { User } from 'src/core/user/entities/user.entity';
 import { BaseEntity } from 'src/shared/base/base.entity';
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
 
 enum GENDER {
   MALE,
@@ -39,6 +40,12 @@ export class Employee extends BaseEntity {
 
   @Column({ name: 'blood_group', nullable: true })
   bloodGroup: string;
+
+  @OneToOne(() => User, (user) => user.employee, {
+    nullable: false,
+  })
+  @JoinColumn()
+  user: User;
 
   @ManyToOne(() => Department, (department) => department.employees, {
     nullable: false,
